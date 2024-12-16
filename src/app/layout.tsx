@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
-import { ClerkProvider  } from '@clerk/nextjs'
+import { ClerkProvider, SignIn } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import ClientProvider from "./ClientProvider";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -32,10 +33,13 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-            <ClientProvider>
-              <Navbar />
+          <ClientProvider>
+            <Navbar />
+            <main>
+              <SignIn /> {/* Clerk SignIn component */}
               {children}
-            </ClientProvider>
+            </main>
+          </ClientProvider>
         </body>
       </html>
     </ClerkProvider>
