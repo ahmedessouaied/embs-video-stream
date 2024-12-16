@@ -2,11 +2,11 @@ import { buttonClassName } from "@/components/Button"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
-interface PageProps {
-    params: { id: string }
-}
+// interface PageProps {
+//     params: { id: string }
+// }
 
-export default function Page({ params: { id } }: PageProps) {
+export default function Page({ params: { id } }) {
     return <div className="flex flex-col items-center gap3">
         <p className="fontbold">You left this meeting.</p>
         <Link
