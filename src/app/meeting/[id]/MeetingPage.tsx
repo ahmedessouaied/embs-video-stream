@@ -7,10 +7,10 @@ import PermissionPrompt from "@/components/PermissionPrompt";
 import useLoadCall from "@/hooks/useLoadCall";
 import useStreamCall from "@/hooks/useStreamCall";
 import { useUser } from "@clerk/nextjs";
-import { Call, CallControls, CallingState, DeviceSettings, SpeakerLayout, StreamCall, StreamTheme, useCall, useCallStateHooks, useStreamVideoClient, VideoPreview } from "@stream-io/video-react-sdk";
+import { CallingState, DeviceSettings, StreamCall, StreamTheme, useCallStateHooks, VideoPreview } from "@stream-io/video-react-sdk";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 interface MeetingPageProps {
     id: string
