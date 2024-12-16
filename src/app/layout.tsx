@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 import { ClerkProvider  } from '@clerk/nextjs'
 import Navbar from "@/components/Navbar";
 import ClientProvider from "./ClientProvider";
@@ -33,14 +32,10 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          
             <ClientProvider>
               <Navbar />
               {children}
             </ClientProvider>
-          
-
-          <Toaster />
         </body>
       </html>
     </ClerkProvider>
