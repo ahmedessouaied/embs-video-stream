@@ -2,12 +2,9 @@ import { buttonClassName } from "@/components/Button"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
- interface PageProps {
-     params: { id: string }
- }
-
-export default function Page({ params }: PageProps ) {
-    const { id } = params;
+type Params = Promise<{ id: string[] }>
+export default async function Page({ params }: { params: Params }) {
+    const { id } = await params;
     return <div className="flex flex-col items-center gap3">
         <p className="fontbold">You left this meeting.</p>
         <Link
