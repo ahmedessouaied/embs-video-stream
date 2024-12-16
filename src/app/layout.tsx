@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
-import { ClerkProvider, SignIn } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedOut,
+} from '@clerk/nextjs'
 import Navbar from "@/components/Navbar";
 import ClientProvider from "./ClientProvider";
 
@@ -29,19 +33,19 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
           <ClientProvider>
             <Navbar />
-            <main>
-              <SignIn /> {/* Clerk SignIn component */}
-              {children}
-            </main>
+            {children}
           </ClientProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+      </body>
+    </html>
+  </ClerkProvider>
   );
 }
